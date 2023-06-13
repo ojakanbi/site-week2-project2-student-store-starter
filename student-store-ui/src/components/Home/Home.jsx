@@ -1,10 +1,12 @@
 import * as React from "react"
 import "./Home.css"
+import { ProductCard } from "../ProductCard/ProductCard"
 
-export default function Home() {
+
+export default function Home(props) {
+
   return (
-    <div className="home">
-      <p>Home</p>
-    </div>
+    <ProductCard products={props.products} />
   )
+
 }
