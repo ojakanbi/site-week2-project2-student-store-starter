@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 
+
 export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
 
@@ -24,6 +25,11 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
+      {/* <Routes> 
+        <Route path="/" element={<Home products={products} />} />
+        <Route path="/about" element={<About />} />
+        
+      </Routes> */}
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />

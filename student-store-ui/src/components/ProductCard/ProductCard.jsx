@@ -4,7 +4,7 @@ import "./ProductCard.css"
 
 export function ProductCard({products}) {
 
-    console.log(products)
+    // console.log(products)
   
     function createProduct(info) {
       return (
