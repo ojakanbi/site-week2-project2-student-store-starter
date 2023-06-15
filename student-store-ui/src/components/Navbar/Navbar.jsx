@@ -10,22 +10,24 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="content">
-          <img src={Logo1} className="slack-img"></img>
+          <a id="home"  href="#home">
+          <img src={Logo1}className="slack-img"></img>
+            </a>
           <ul className="link">
             <li>
               
-              <a id="home">Home </a>
+              <a id="home" href="#home">Home </a>
             </li>
             <li>
               
-              <a id="about">About Us </a>
+              <a id="about" href="#aboutus">About Us  </a>
             </li>
             <li>
-              <a id="contact">Contact Us </a>
+              <a id="contact" href="#Contact"> Contact Us </a>
             </li>
             <li>
               
-              <a id="buyNow">Buy Now</a>
+              <a id="buyNow" href="">Buy Now</a>
             </li>
           </ul>
         </div>

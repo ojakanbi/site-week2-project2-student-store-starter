@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Logo1 from "../../images/slack_logo.png";
 import Logo2 from "../../images/slack-img.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+// import Navbar from "../Navbar/Navbar";
 
 export default function Home({products}) {
   
@@ -50,7 +50,7 @@ export default function Home({products}) {
    
     
 
-      <div className="sub-nav-container">
+      <div className="sub-nav-container" id="home">
         <section className="search-container">
           <input
             type="text"
@@ -119,7 +119,7 @@ export default function Home({products}) {
               Accessories
             </a>
           </li>
-        </ul>å
+        </ul>
       </section>
 
       <div className="product-container">
@@ -137,9 +137,9 @@ export default function Home({products}) {
          <div className="about-us-container">
          <h3>About</h3>
 
-         <section className="about-us">
+         <section className="about-us" id="aboutus">
            <section className="info-about">
-             <p>
+             <p >
                The codepath student store offers great products at great prices
                from a great team and for a great cause.
              </p>
@@ -162,7 +162,7 @@ export default function Home({products}) {
          </section>
        </div>
 
-       <div className="about-us-container">
+       <div className="about-us-container" id="Contact">
          <h3>Info</h3>
 
          <section className="info-section">
@@ -171,7 +171,7 @@ export default function Home({products}) {
                <li>Email: slack.com</li>
                <li>Phone: 100-xxx-xxx</li>
                <li>Address: 500 Howard StSan Francisco, CA 94105</li>
-               <li>Socails:</li>
+               <li>Socials:</li>
              </ul>
            </section>
 
