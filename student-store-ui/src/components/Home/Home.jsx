@@ -3,13 +3,15 @@ import "./Home.css";
 import { ProductCard } from "../ProductCard/ProductCard";
 import Logo from "../Logo/Logo";
 import { useState, useEffect } from "react";
-import Logo1 from "../../images/slack_logo.png"
-import Logo2 from "../../images/slack-img.png"
-
-
-
+import Logo1 from "../../images/slack_logo.png";
+import Logo2 from "../../images/slack-img.png";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default function Home(props) {
+  
+
+
+
   const [filter, setFilter] = useState([]);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function Home(props) {
         </section>
 
         <section>
-          <img src ={Logo1} id = "logo-head"></img>
+          <img src={Logo1} id="logo-head"></img>
         </section>
       </div>
 
@@ -123,71 +125,62 @@ export default function Home(props) {
       </section>
 
       <div className="product-container">
+      
+
+        
+
         <ProductCard products={filter} />
+
+        
+        
       </div>
 
       <div className="about-us-container">
-
         <h3>About</h3>
 
         <section className="about-us">
-
           <section className="info-about">
-          <p>
-                The codepath student store offers great products at great prices from a great team and for a great cause.
-          </p>
+            <p>
+              The codepath student store offers great products at great prices
+              from a great team and for a great cause.
+            </p>
 
-          <p>
-            We've searched far and wide for items that perk the interests of even the most eccentric students and decided to offer them all here in one place.
-          </p>
+            <p>
+              We've searched far and wide for items that perk the interests of
+              even the most eccentric students and decided to offer them all
+              here in one place.
+            </p>
 
-          <p>
-            All proceeds go towards bringing high quality CS education to college students around the country.
-          </p>
+            <p>
+              All proceeds go towards bringing high quality CS education to
+              college students around the country.
+            </p>
+          </section>
+
+          <section className="about-img">
+            {/* <img src={Logo1} className="App-logo" alt="logo" /> */}
+          </section>
         </section>
-
-        <section className="about-img">
-        {/* <img src={Logo1} className="App-logo" alt="logo" /> */}
-
-        </section>
-
-        </section>
-
-
       </div>
 
       <div className="about-us-container">
+        <h3>Info</h3>
 
-<h3>Info</h3>
+        <section className="info-section">
+          <section className="info-details">
+            <ul>
+              <li>Email: slack.com</li>
+              <li>Phone: 100-xxx-xxx</li>
+              <li>Address: 500 Howard StSan Francisco, CA 94105</li>
+              <li>Socails:</li>
+            </ul>
+          </section>
 
-<section className="info-section">
-
-  <section className="info-details">
-    <ul>
-      <li>
-        Email: slack.com
-      </li>
-      <li>
-        Phone: 100-xxx-xxx
-      </li>
-      <li>
-        Address: 500 Howard StSan Francisco, CA 94105
-      </li>
-      <li>
-        Socails: 
-      </li>
-    </ul>
-</section>
-
-<section className="info-img">
-
-<img src={Logo2} className="App-logo" alt="logo" />
-  
-</section>
-
-</section>
-
-</div>
+          <section className="info-img">
+            <img src={Logo2} className="App-logo" alt="logo" />
+          </section>
+        </section>
+      </div>
     </>
   );
 }

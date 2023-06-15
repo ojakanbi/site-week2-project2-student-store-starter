@@ -7,6 +7,9 @@ import "./App.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ProductDetails } from "../ProductDetails/ProductDetails";
 
 
 export default function App() {
@@ -24,23 +27,16 @@ export default function App() {
 
   return (
     <div className="app">
-      <BrowserRouter>
-      {/* <Routes> 
-        <Route path="/" element={<Home products={products} />} />
-        <Route path="/about" element={<About />} />
-        
-      </Routes> */}
+      
+       
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />
 
-          {/* {products?.map((product) => (<h1>{product.name}</h1>))} */}
-
-          {/* <Sidebar /> */}
-          {/* <Sidebar /> */}
+       
           <Home products={products}/>
         </main>
-      </BrowserRouter>
+      
     </div>
   );
 }
