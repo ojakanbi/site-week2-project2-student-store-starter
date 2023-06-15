@@ -1,58 +1,54 @@
 import * as React from "react";
 import "./Home.css";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductList } from "../ProductList/ProductList";
 import Logo from "../Logo/Logo";
 import { useState, useEffect } from "react";
 import Logo1 from "../../images/slack_logo.png";
 import Logo2 from "../../images/slack-img.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-export default function Home(props) {
+
+export default function Home({products}) {
   
 
 
 
   const [filter, setFilter] = useState([]);
 
+
+  
   useEffect(() => {
-    setFilter(props.products);
-  }, [props.products]);
+    setFilter(products);
+  }, [products]);
 
   function searchResults(search) {
     setFilter(
-      props.products.filter((product) =>
+      products.filter((product) =>
         product.name.toLowerCase().includes(search)
       )
     );
   }
 
   function allCategories() {
-    setFilter(props.products);
+    setFilter(products);
   }
+
 
   function filterByCategory(category) {
     setFilter(
-      props.products.filter((product) => product.category === category)
+      products.filter((product) => product.category === category)
     );
+    
   }
 
+  
+
+  
   return (
     <>
-      <div className="header-container">
-        <section className="header-info">
-          <h1>Welcome!</h1>
-          <h1>Find Your Merch!</h1>
-
-          <p>
-            We have all kinds of goodies. Click on any of the items to start
-            filling up your shopping cart. Checkout whenever you're ready.
-          </p>
-        </section>
-
-        <section>
-          <img src={Logo1} id="logo-head"></img>
-        </section>
-      </div>
+      
+   
+    
 
       <div className="sub-nav-container">
         <section className="search-container">
@@ -83,17 +79,18 @@ export default function Home(props) {
         </section>
       </div>
 
-      <section className="cat-container">
-        <ul>
-          <li>
+        <section className="cat-container">
+         <ul>
+         <li>
             <a onClick={allCategories}>All Categories</a>
-          </li>
-          <li>
-            <a
-              href="#"
+        </li>
+        <li>
+       <a
+        href="#"
               data-category="clothing"
               onClick={(event) =>
                 filterByCategory(event.target.dataset.category)
+                
               }
             >
               Clothing
@@ -105,6 +102,7 @@ export default function Home(props) {
               data-category="food"
               onClick={(event) =>
                 filterByCategory(event.target.dataset.category)
+                
               }
             >
               Food
@@ -121,66 +119,73 @@ export default function Home(props) {
               Accessories
             </a>
           </li>
-        </ul>
+        </ul>å
       </section>
 
       <div className="product-container">
       
-
         
 
-        <ProductCard products={filter} />
 
         
         
       </div>
 
-      <div className="about-us-container">
-        <h3>About</h3>
+      <ProductList products={filter} />
 
-        <section className="about-us">
-          <section className="info-about">
-            <p>
-              The codepath student store offers great products at great prices
-              from a great team and for a great cause.
-            </p>
 
-            <p>
-              We've searched far and wide for items that perk the interests of
-              even the most eccentric students and decided to offer them all
-              here in one place.
-            </p>
+         <div className="about-us-container">
+         <h3>About</h3>
 
-            <p>
-              All proceeds go towards bringing high quality CS education to
-              college students around the country.
-            </p>
-          </section>
+         <section className="about-us">
+           <section className="info-about">
+             <p>
+               The codepath student store offers great products at great prices
+               from a great team and for a great cause.
+             </p>
 
-          <section className="about-img">
-            {/* <img src={Logo1} className="App-logo" alt="logo" /> */}
-          </section>
-        </section>
+             <p>
+               We've searched far and wide for items that perk the interests of
+               even the most eccentric students and decided to offer them all
+               here in one place.
+             </p>
+
+             <p>
+               All proceeds go towards bringing high quality CS education to
+               college students around the country.
+             </p>
+           </section>
+
+           <section className="about-img">
+             {/* <img src={Logo1} className="App-logo" alt="logo" /> */}
+           </section>
+         </section>
+       </div>
+
+       <div className="about-us-container">
+         <h3>Info</h3>
+
+         <section className="info-section">
+           <section className="info-details">
+             <ul>
+               <li>Email: slack.com</li>
+               <li>Phone: 100-xxx-xxx</li>
+               <li>Address: 500 Howard StSan Francisco, CA 94105</li>
+               <li>Socails:</li>
+             </ul>
+           </section>
+
+           <section className="info-img">
+             <img src={Logo2} className="App-logo" alt="logo" />
+           </section>
+         </section>
       </div>
+      </>
 
-      <div className="about-us-container">
-        <h3>Info</h3>
+   
 
-        <section className="info-section">
-          <section className="info-details">
-            <ul>
-              <li>Email: slack.com</li>
-              <li>Phone: 100-xxx-xxx</li>
-              <li>Address: 500 Howard StSan Francisco, CA 94105</li>
-              <li>Socails:</li>
-            </ul>
-          </section>
-
-          <section className="info-img">
-            <img src={Logo2} className="App-logo" alt="logo" />
-          </section>
-        </section>
-      </div>
-    </>
+    
+    
   );
 }
+
