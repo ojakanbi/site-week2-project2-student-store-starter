@@ -1,10 +1,12 @@
 .product-card {
  width: 20%;
  height: auto;
- padding: 5px;
+ 
+ padding: 3px;
  margin-bottom: 15px;
+ margin-right: 15px;
  border-radius: 15px;
- border: 5px solid #2c4047;
+ border: 5px solid #541554;
 
 
 }
@@ -21,4 +23,9 @@ img {
    flex-wrap: wrap;
    justify-content: space-evenly;
 
+}
+#logo-head {
+    width: 100px;
+    height: 100px;
+   
 }

@@ -3,16 +3,21 @@ import "./Home.css";
 import { ProductCard } from "../ProductCard/ProductCard";
 import Logo from "../Logo/Logo";
 import { useState, useEffect } from "react";
+import Logo1 from "../../images/slack_logo.png"
+import Logo2 from "../../images/slack-img.png"
+
+
+
 
 export default function Home(props) {
-  const [filter, setFliter] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
-    setFliter(props.products);
+    setFilter(props.products);
   }, [props.products]);
 
-  function searchresults(search) {
-    setFliter(
+  function searchResults(search) {
+    setFilter(
       props.products.filter((product) =>
         product.name.toLowerCase().includes(search)
       )
@@ -43,7 +48,7 @@ export default function Home(props) {
         </section>
 
         <section>
-          <Logo />
+          <img src ={Logo1} id = "logo-head"></img>
         </section>
       </div>
 
@@ -54,38 +59,40 @@ export default function Home(props) {
             placeholder="Search"
             name="search"
             onChange={(event) =>
-              searchresults(event.target.value.toLowerCase())
+              searchResults(event.target.value.toLowerCase())
             }
           />
           <button>
-            <i class="material-icons md-48">search</i>
+            <i className="material-icons md-48">search</i>
           </button>
         </section>
 
-        <sections>
+        <section>
           <button className="search-button">
-            <i class="material-icons md-48">help</i>
+            <i className="material-icons md-48">help</i>
             <label>Help</label>
           </button>
-        </sections>
+        </section>
 
-        <sections>
+        <section>
           <button>
-            My Cart <i class="material-icons md-48">shopping_cart</i>
+            My Cart <i className="material-icons md-48">shopping_cart</i>
           </button>
-        </sections>
+        </section>
       </div>
 
-      <sections className="cat-container">
+      <section className="cat-container">
         <ul>
           <li>
-            <a onClick={allCategories()}>All Categories</a>
+            <a onClick={allCategories}>All Categories</a>
           </li>
           <li>
             <a
               href="#"
               data-category="clothing"
-              onclick={filterByCategory(this.dataset.category)}
+              onClick={(event) =>
+                filterByCategory(event.target.dataset.category)
+              }
             >
               Clothing
             </a>
@@ -94,7 +101,9 @@ export default function Home(props) {
             <a
               href="#"
               data-category="food"
-              onclick={filterByCategory(this.dataset.category)}
+              onClick={(event) =>
+                filterByCategory(event.target.dataset.category)
+              }
             >
               Food
             </a>
@@ -103,18 +112,82 @@ export default function Home(props) {
             <a
               href="#"
               data-category="accessories"
-              onclick={filterByCategory(this.dataset.category)}
+              onClick={(event) =>
+                filterByCategory(event.target.dataset.category)
+              }
             >
               Accessories
             </a>
           </li>
         </ul>
-      </sections>
+      </section>
 
       <div className="product-container">
         <ProductCard products={filter} />
+      </div>
+
+      <div className="about-us-container">
+
+        <h3>About</h3>
+
+        <section className="about-us">
+
+          <section className="info-about">
+          <p>
+                The codepath student store offers great products at great prices from a great team and for a great cause.
+          </p>
+
+          <p>
+            We've searched far and wide for items that perk the interests of even the most eccentric students and decided to offer them all here in one place.
+          </p>
+
+          <p>
+            All proceeds go towards bringing high quality CS education to college students around the country.
+          </p>
+        </section>
+
+        <section className="about-img">
+        {/* <img src={Logo1} className="App-logo" alt="logo" /> */}
+
+        </section>
+
+        </section>
+
 
       </div>
+
+      <div className="about-us-container">
+
+<h3>Info</h3>
+
+<section className="info-section">
+
+  <section className="info-details">
+    <ul>
+      <li>
+        Email: slack.com
+      </li>
+      <li>
+        Phone: 100-xxx-xxx
+      </li>
+      <li>
+        Address: 500 Howard StSan Francisco, CA 94105
+      </li>
+      <li>
+        Socails: 
+      </li>
+    </ul>
+</section>
+
+<section className="info-img">
+
+<img src={Logo2} className="App-logo" alt="logo" />
+  
+</section>
+
+</section>
+
+</div>
     </>
   );
 }
