@@ -4,35 +4,30 @@ import { ProductCard } from "../ProductCard/ProductCard";
 import Logo from "../Logo/Logo";
 import { useState, useEffect } from "react";
 
-
 export default function Home(props) {
-  const [filter, setFliter] = useState([])
+  const [filter, setFliter] = useState([]);
 
   useEffect(() => {
-    setFliter(props.products)
-  }, [props.products])
+    setFliter(props.products);
+  }, [props.products]);
 
   function searchresults(search) {
-    setFliter(props.products.filter(product => product.name.toLowerCase().includes(search)))
+    setFliter(
+      props.products.filter((product) =>
+        product.name.toLowerCase().includes(search)
+      )
+    );
   }
 
   function allCategories() {
-    setFliter(props.products)
+    setFilter(props.products);
   }
 
-  function clothing() {
-    setFliter(props.products.filter(product => product.category === "clothing"))
+  function filterByCategory(category) {
+    setFilter(
+      props.products.filter((product) => product.category === category)
+    );
   }
-
-  function food() {
-    setFliter(props.products.filter(product => product.category === "food"))
-  }
-
-  function accessories() {
-    setFliter(props.products.filter(product => product.category === "accessories"))
-  }
-  
-
 
   return (
     <>
@@ -54,7 +49,14 @@ export default function Home(props) {
 
       <div className="sub-nav-container">
         <section className="search-container">
-          <input type="text" placeholder="Search" name = "search" onChange ={event => searchresults(event.target.value.toLowerCase())} />
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            onChange={(event) =>
+              searchresults(event.target.value.toLowerCase())
+            }
+          />
           <button>
             <i class="material-icons md-48">search</i>
           </button>
@@ -72,24 +74,46 @@ export default function Home(props) {
             My Cart <i class="material-icons md-48">shopping_cart</i>
           </button>
         </sections>
-
-       
       </div>
 
-      <sections className = "cat-container">
-         <ul>
-          <li> <a  onClick= {event => allCategories()}>All Categories</a></li>
-          <li> <a  onClick= {event => clothing()}>Clothing</a></li>
-          <li> <a  onClick= {event => food()}>Food</a></li>
-          <li> <a  onClick= {event => accessories()}>Accessories</a></li>
-
-          </ul>
-          </sections>
-
-      
+      <sections className="cat-container">
+        <ul>
+          <li>
+            <a onClick={allCategories()}>All Categories</a>
+          </li>
+          <li>
+            <a
+              href="#"
+              data-category="clothing"
+              onclick={filterByCategory(this.dataset.category)}
+            >
+              Clothing
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              data-category="food"
+              onclick={filterByCategory(this.dataset.category)}
+            >
+              Food
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              data-category="accessories"
+              onclick={filterByCategory(this.dataset.category)}
+            >
+              Accessories
+            </a>
+          </li>
+        </ul>
+      </sections>
 
       <div className="product-container">
         <ProductCard products={filter} />
+
       </div>
     </>
   );
