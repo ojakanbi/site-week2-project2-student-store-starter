@@ -16,6 +16,21 @@ export default function Home(props) {
     setFliter(props.products.filter(product => product.name.toLowerCase().includes(search)))
   }
 
+  function allCategories() {
+    setFliter(props.products)
+  }
+
+  function clothing() {
+    setFliter(props.products.filter(product => product.category === "clothing"))
+  }
+
+  function food() {
+    setFliter(props.products.filter(product => product.category === "food"))
+  }
+
+  function accessories() {
+    setFliter(props.products.filter(product => product.category === "accessories"))
+  }
   
 
 
@@ -63,10 +78,10 @@ export default function Home(props) {
 
       <sections className = "cat-container">
          <ul>
-          <li> <a href = "/">All Categories</a></li>
-          <li> <a href = "/about">Clothing</a></li>
-          <li> <a href = "/about">Food</a></li>
-          <li> <a href = "/about">Accessories</a></li>
+          <li> <a  onClick= {event => allCategories()}>All Categories</a></li>
+          <li> <a  onClick= {event => clothing()}>Clothing</a></li>
+          <li> <a  onClick= {event => food()}>Food</a></li>
+          <li> <a  onClick= {event => accessories()}>Accessories</a></li>
 
           </ul>
           </sections>
