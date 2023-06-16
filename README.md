@@ -46,7 +46,6 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 - [ ] Your choice! (Replace this bullet explaining what you implemented. Example: Users can create a wish list of products they are interested in but not yet ready to purchase.)
 
 <a href="https://www.loom.com/share/dadea82c216e488aa30eb0c8ecea2714">
-    <p>Loom Message - 16 June 2023 - Watch Video</p>
     <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/dadea82c216e488aa30eb0c8ecea2714-with-play.gif">
   </a>
 
