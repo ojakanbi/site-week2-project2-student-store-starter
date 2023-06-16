@@ -1,3 +1,11 @@
+:root {
+  --side-padding: 40px;
+  --slack-purple: #4A154B;
+  --slack-yellow: #ECB22E;
+  --slack-green: #2EB67D;
+  --slack-blue: #36C5F0;
+  --slack-red: #E01E5A;
+}
 
 .home {
   width: 100%;
@@ -62,6 +70,16 @@ p {
 
 }
 
+.cat-container{
+  background: linear-gradient(to right, var(--slack-yellow), var(--slack-purple));
+  border-radius: 1%;
+  padding: 1%;
+  margin: 1%;
+  border:2px solid var(--slack-purple);
+
+}
+
+
 
 .cat-container ul{
   display: flex;
@@ -81,8 +99,9 @@ p {
 }
 
 .cat-container ul li a{
-  
+  color: white;
  text-decoration: none;
+ font-weight: bolder;
 }
 
 

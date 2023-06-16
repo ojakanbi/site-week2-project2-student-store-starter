@@ -9,6 +9,8 @@ import { useState } from "react";
 import { ProductDetails } from "../ProductDetails/ProductDetails";
 import Welcome from "../Welcome/Welcome";
 import About from "../About/About";
+import Footer from "../Footer /Footer";
+import Sidebar from "../Sidebar/Sidebar";
 
 export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
@@ -25,7 +27,7 @@ export default function App() {
     // The nav bar should be inside with its own Route and is nested for the other routes
     <BrowserRouter>  
       <Navbar /> {/* Render the Navbar component outside the Routes */}
-     
+      <Sidebar />
       <div className="content-wrapper"> {/* Create a wrapper for the routes */}
         <Routes>
           <Route path="/" element={<Home products={products} />} />
@@ -33,6 +35,7 @@ export default function App() {
           <Route path="/" element={<About />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

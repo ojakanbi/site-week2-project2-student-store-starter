@@ -1,4 +1,13 @@
-.sidebar {
+:root {
+    --side-padding: 40px;
+    --slack-purple: #4A154B;
+    --slack-yellow: #ECB22E;
+    --slack-green: #2EB67D;
+    --slack-blue: #36C5F0;
+    --slack-red: #E01E5A;
+  }
+  
+  .sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,52 +16,69 @@
     transition: all .2s cubic-bezier(.215,.61,.355,1);
     position: fixed;
     z-index: 1;
-    top: 0px;
-    height: 100vh;
+    /* Remove height: 100vh; */
     padding: 0;
     overflow-y: scroll;
     padding-bottom: 2rem;
-    background: #2c4047;
+    background: linear-gradient(to right, var(--slack-blue), var(--slack-green));
     border-right: solid 1px white;
     justify-content: space-evenly;
     color: white;
-}
-
-
-.wrapper {
-    
+  }
+  
+  .wrapper {
+    position: fixed;
+    top: 0;
     align-content: center;
-}
-.shopping-cart {
+    background: linear-gradient(to right, var(--slack-purple), var(--slack-yellow));
+    ;
+  }
+
+ .toggle-button-button-open{
+    background: linear-gradient(to right, var(--slack-blue), var(--slack-green));
+
+    border: none;
+    color: white;
+    margin-left: 45% ;
+    padding-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+  }
+  
+  .shopping-cart {
     width: 100%;
     color: #fff;
-}
-
-.input-field {
+    position: absolute;
+    top: 0;
+  }
+  
+  .input-field {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1rem;
-   
-}
-.input-field input:focus {
+  }
+  
+  .input-field input:focus {
     border: 1px solid #4a957b;
-}
-
-.input-field input::placeholder {
+  }
+  
+  .input-field input::placeholder {
     color: #6c6f6e;
     font-size: 15px;
-}
-
-.input-field form {
+  }
+  
+  .input-field form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
     margin-bottom: 1rem;
-}
-
-.input-field input {
+  }
+  
+  .input-field input {
     width: 100%;
     height: 15px;
     padding: 1rem;
@@ -62,29 +88,25 @@
     font-size: 1.2rem;
     font-weight: 500;
     outline: none;
-
-}
-
-
-.input-field label {
+  }
+  
+  .input-field label {
     display: flex;
     width: 100%;
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: .5rem;
     flex-direction: row;
-}
-
-
-.checkbox{
+  }
+  
+  .checkbox {
     display: flex;
     flex-direction: row;
     margin-bottom: 1rem;
     align-items: center;
-
-}
-
-.button-checkout {
+  }
+  
+  .button-checkout {
     margin-top: 10px;
     padding: 12px 18px;
     font-size: 18px;
@@ -92,13 +114,24 @@
     background: transparent;
     border: solid 1px white;
     color: #fff;
-}
-
-
-.information-check {
+  }
+  
+  .information-check {
     display: flex;
     flex-direction: column;
     width: 100%;
-   justify-content: center;
-   align-items: center;
-}
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    flex: 1;
+    background: var(--slack-purple);
+    transition: all .2s cubic-bezier(.215,.61,.355,1);
+    position: fixed;
+    z-index: 1;
+  }

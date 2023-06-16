@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Logo1 from "../../images/slack_logo.png";
 import Logo2 from "../../images/slack-img.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 // import Navbar from "../Navbar/Navbar";
 
 export default function Home({products}) {
@@ -180,6 +181,8 @@ export default function Home({products}) {
            </section>
          </section>
       </div>
+
+      
       </>
 
    
