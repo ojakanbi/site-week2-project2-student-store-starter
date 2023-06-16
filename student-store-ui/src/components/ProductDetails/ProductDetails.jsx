@@ -3,39 +3,37 @@ import { BrowserRouter as Router, Route, Link, useParams } from 'react-router-do
 import "./ProductDetails.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Home from "../Home/Home";
 
 
-export function ProductDetails() { 
+export function ProductDetails() {
+  const url = "https://codepath-store-api.herokuapp.com/store";
+  const { id } = useParams();
 
-    const url = "https://codepath-store-api.herokuapp.com/store";
-    const {id} = useParams();
+  const [products, setProducts] = useState({});
 
-    const [products, setProducts] = useState({});
+  useEffect(() => {
+    axios.get(`${url}/${id}`).then((response) => {
+      setProducts(response.data.product);
+    });
+  }, []);
 
-    useEffect (() => {
-        axios.get(`${url}/${id}`).then((response) => {
-            setProducts(response.data.product);
-            
-        })
-    })
+  return (
+    <>
+   
+      <div className="product-details">
+        <div>
+
+        <img className="product-image" src={products.image} alt={products.name} />
 
 
-
-    return (
-
-        <>
-       
-
-        <h1>Hey</h1>
-
-    
-        <div className="product-details">
-            <img src={products.image} alt={products.name} />
-            <p> {products.name}</p>
-            <p> {products.price}</p>
-            <p> {products.description}</p>
         </div>
-
-        </>
-    )
+        <div className="product-info">
+          <h1 className="product-name">{products.name}</h1>
+          <p className="product-price">${products.price}</p>
+          <p className="product-description">{products.description}</p>
+        </div>
+      </div>
+    </>
+  );
 }

@@ -140,7 +140,7 @@ export default function Home({products}) {
          <section className="about-us" id="aboutus">
            <section className="info-about">
              <p >
-               The codepath student store offers great products at great prices
+               The slack student store offers great products at great prices
                from a great team and for a great cause.
              </p>
 
@@ -170,7 +170,7 @@ export default function Home({products}) {
              <ul>
                <li>Email: slack.com</li>
                <li>Phone: 100-xxx-xxx</li>
-               <li>Address: 500 Howard StSan Francisco, CA 94105</li>
+               <li>Address: 500 Howard St San Francisco, CA 94105</li>
                <li>Socials:</li>
              </ul>
            </section>

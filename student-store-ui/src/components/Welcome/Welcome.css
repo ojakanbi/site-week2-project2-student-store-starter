@@ -28,4 +28,10 @@
     font-size: 3rem;
     font-weight: 700;
   }
+
+  #logo-head{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+  }
   
