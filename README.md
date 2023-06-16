@@ -45,5 +45,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [ ] Your choice! (Replace this bullet explaining what you implemented. Example: Users can create a wish list of products they are interested in but not yet ready to purchase.)
 
-
-https://www.loom.com/share/dadea82c216e488aa30eb0c8ecea2714?sid=aa020a6c-5740-441f-a9ad-cf5375ea486b
+<a href="https://www.loom.com/share/dadea82c216e488aa30eb0c8ecea2714">
+    <p>Loom Message - 16 June 2023 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/dadea82c216e488aa30eb0c8ecea2714-with-play.gif">
+  </a>
