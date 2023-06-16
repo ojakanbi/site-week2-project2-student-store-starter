@@ -49,3 +49,5 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
     <p>Loom Message - 16 June 2023 - Watch Video</p>
     <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/dadea82c216e488aa30eb0c8ecea2714-with-play.gif">
   </a>
+
+  <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/dadea82c216e488aa30eb0c8ecea2714?sid=eb9da447-25d7-4342-9fd0-7f2b70a45043" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
