@@ -10,8 +10,17 @@ export function ProductList({ products }) {
         <Link to={`products/${info.id}`} className="product-card">
           <div className="container-card">
             <img src={info.image} alt={info.name} />
-            <p>{info.name}</p>
-            <p>${info.price}</p>
+            <div className="product-info">
+              <p className="product-name">{info.name}</p>
+              <p className="product-price">${info.price}</p>
+            </div>
+          </div>
+          <div className="card-info">
+            <section className="product-rating">⭐️⭐️⭐️⭐️⭐️</section>
+            <section className="product-buttons">
+              <button className="quantity-button">+</button>
+              <button className="quantity-button">-</button>
+            </section>
           </div>
         </Link>
       </>
@@ -21,7 +30,9 @@ export function ProductList({ products }) {
   return (
     <>
       <div className="product">
-        {products.length > 0 ? products.map((product, index) => createProduct(product, index)) : null}
+        {products.length > 0
+          ? products.map((product, index) => createProduct(product, index))
+          : null}
       </div>
       <Outlet />
     </>

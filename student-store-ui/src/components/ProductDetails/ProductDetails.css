@@ -39,7 +39,7 @@
   .product-price {
     font-size: 25px;
     font-weight: bold;
-    color: var(--slack-blue);
+    /* color: var(--slack-blue); */
     margin-bottom: 10px;
   }
   
