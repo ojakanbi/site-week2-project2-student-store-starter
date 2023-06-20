@@ -7,12 +7,17 @@ export function ProductList({ products }) {
   function createProduct(info, index) {
     return (
       <>
+
+
         <Link to={`products/${info.id}`} className="product-card">
           <div className="container-card">
             <img src={info.image} alt={info.name} />
             <div className="product-info">
               <p className="product-name">{info.name}</p>
-              <p className="product-price">${info.price}</p>
+              <p className="product-price">{info.price.toLocaleString("us-EN", {
+                  style: "currency",
+                  currency: "USD",
+                }) }</p>
             </div>
           </div>
           <div className="card-info">
