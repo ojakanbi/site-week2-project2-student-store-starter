@@ -27,7 +27,7 @@ export default function Sidebar(props) {
         {open && (
           <div className="shoping-cart">
             <div className="open">
-              {/* Shopping cart title */}
+              {/* Shopping cart title */}``
               <h3>
                 Shopping Cart
                 <span className="button">

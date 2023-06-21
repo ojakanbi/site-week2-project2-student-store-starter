@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // import Navbar from "../Navbar/Navbar";
 
-export default function Home({ products }) {
+export default function Home({ products, cart, setCart}) {
   const [filter, setFilter] = useState([]);
 
   useEffect(() => {
@@ -104,7 +104,7 @@ export default function Home({ products }) {
 
       <div className="product-container"></div>
 
-      <ProductList products={filter} />
+      <ProductList products={filter} cart={cart}  setCart={setCart} />
 
       <div className="about-us-container">
         <h3>About</h3>

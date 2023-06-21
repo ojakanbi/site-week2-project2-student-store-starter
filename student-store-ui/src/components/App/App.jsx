@@ -13,13 +13,16 @@ import Footer from "../Footer /Footer";
 import Sidebar from "../Sidebar/Sidebar";
 
 export default function App() {
-  const url = "https://codepath-store-api.herokuapp.com/store";
+  const url = "http://localhost:3001/api";
 
   const [products, setProducts] = useState({});
+  const [cart, setCart] = useState([])
+
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setProducts(response.data.products);
+      console.log(response.data);
     });
   }, []);
 
@@ -30,7 +33,7 @@ export default function App() {
       <Sidebar />
       <div className="content-wrapper"> {/* Create a wrapper for the routes */}
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route path="/" element={<Home products={products} cart={cart} setCart={setCart} />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/" element={<About />} />
         </Routes>
