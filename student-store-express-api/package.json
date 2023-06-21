@@ -15,5 +15,8 @@
   },
   "engines": {
     "node": ">=18.16.0"
-  }
+  },
+  "description": "Run `npm install` to install the required dependencies, then run `npm start` to start the backend.",
+  "author": "",
+  "license": "ISC"
 }
