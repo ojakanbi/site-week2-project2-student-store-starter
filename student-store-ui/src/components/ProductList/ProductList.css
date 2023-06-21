@@ -100,3 +100,7 @@ img {
 .quantity-button:hover {
   background-color: var(--slack-yellow);
 }
+
+#product-link {
+  text-decoration: none;
+}

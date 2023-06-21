@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import { useState } from "react";
 
 // This component represents a sidebar that can be toggled open or closed.
-export default function Sidebar(props) {
+export default function Sidebar({cart}) {
   const [open, setOpen] = useState(false);
 
   // Function to toggle the sidebar open or closed.
@@ -36,9 +36,27 @@ export default function Sidebar(props) {
               </h3>
 
               {/* Notification for empty cart */}
-              <div className="notification">
-                No items added to the cart just yet! Start shopping
+              
+             
+
+             
+
+              {cart.length > 0 ? cart.map((item) => {
+                return (
+                    <div className="cart-info">
+                      <h4>{item.name}</h4>
+                      <p>{item.price}</p>
+                      <p>{item.quantity}</p>
+                    </div>
+            
+                );
+              }):  <div className="notification">
+              No items added to the cart just yet! Start shopping
               </div>
+            }
+              
+              
+              
 
               {/* Checkout form */}
               <div className="checkout-form">
