@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import { useState } from "react";
 
 // This component represents a sidebar that can be toggled open or closed.
-export default function Sidebar({cart}) {
+export default function Sidebar({cart, setCart}) {
   const [open, setOpen] = useState(false);
 
   // Function to toggle the sidebar open or closed.
@@ -35,26 +35,76 @@ export default function Sidebar({cart}) {
                 </span>
               </h3>
 
+              
               {/* Notification for empty cart */}
               
              
+              {cart.length > 0 ? (
+  <div className="cart-container">
+    <button className="clear-button" onClick={() => setCart([])}>
+      Clear
+    </button>
 
-             
+    
+    {cart.map((item) => {
+      const cost = item.price * item.quantity;
 
-              {cart.length > 0 ? cart.map((item) => {
-                return (
-                    <div className="cart-info">
-                      <h4>{item.name}</h4>
-                      <p>{item.price}</p>
-                      <p>{item.quantity}</p>
-                    </div>
-            
-                );
-              }):  <div className="notification">
-              No items added to the cart just yet! Start shopping
-              </div>
-            }
-              
+      return (
+        <div className="cart-item" key={item.id}>
+          <div className="cart-item-details">
+            <h4 className="cart-item-name">{item.name}</h4>
+            <p className="cart-item-price">
+              Price:{" "}
+              {item.price?.toLocaleString("us-EN", {
+                style: "currency",
+                currency: "USD",
+              })}
+            </p>
+            <p className="cart-item-quantity">Quantity: {item.quantity}</p>
+          </div>
+          <p className="cart-item-cost">
+            Cost:{" "}
+            {cost?.toLocaleString("us-EN", {
+              style: "currency",
+              currency: "USD",
+            })}
+          </p>
+        </div>
+      );
+    })}
+
+    <div className="cart-summary">
+      <h3>Total Cost</h3>
+      <p className="cart-total">
+        Subtotal:{" "}
+        {cart.reduce((total, item) => total + item.price * item.quantity, 0)?.toLocaleString("us-EN", {
+          style: "currency",
+          currency: "USD",
+        })}
+      </p>
+      <p className="cart-tax">
+        Tax (5%):{" "}
+        {(cart.reduce((total, item) => total + item.price * item.quantity, 0) * 0.005)?.toLocaleString("us-EN", {
+          style: "currency",
+          currency: "USD",
+        })}
+      </p>
+      <p className="cart-grand-total">
+        Grand Total:{" "}
+        {(cart.reduce((total, item) => total + item.price * item.quantity, 0) * 1.1)?.toLocaleString("us-EN", {
+          style: "currency",
+          currency: "USD",
+        })}
+      </p>
+    </div>
+  </div>
+) : (
+  <div className="notification">
+    <h2>No items added to the cart just yet! Start shopping</h2>
+  </div>
+)}
+
+
               
               
 

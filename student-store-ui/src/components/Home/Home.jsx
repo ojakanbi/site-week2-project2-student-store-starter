@@ -30,6 +30,8 @@ export default function Home({ products, cart, setCart}) {
     setFilter(products.filter((product) => product.category === category));
   }
 
+  
+
   return (
     <>
       <div className="sub-nav-container" id="home">
@@ -68,10 +70,10 @@ export default function Home({ products, cart, setCart}) {
           </li>
           <li>
             <a
-              href="#"
+              
               data-category="clothing"
-              onClick={(event) =>
-                filterByCategory(event.target.dataset.category)
+              onClick={
+                filterByCategory
               }
             >
               Clothing
@@ -79,10 +81,10 @@ export default function Home({ products, cart, setCart}) {
           </li>
           <li>
             <a
-              href="#"
+              
               data-category="food"
-              onClick={(event) =>
-                filterByCategory(event.target.dataset.category)
+              onClick={() =>
+                filterByCategory("food")
               }
             >
               Food
@@ -90,7 +92,6 @@ export default function Home({ products, cart, setCart}) {
           </li>
           <li>
             <a
-              href="#"
               data-category="accessories"
               onClick={(event) =>
                 filterByCategory(event.target.dataset.category)

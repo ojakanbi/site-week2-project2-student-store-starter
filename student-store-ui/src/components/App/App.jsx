@@ -26,11 +26,13 @@ export default function App() {
     });
   }, []);
 
+ 
+
   return (
     // The nav bar should be inside with its own Route and is nested for the other routes
     <BrowserRouter>  
       <Navbar /> {/* Render the Navbar component outside the Routes */}
-      <Sidebar cart={cart} />
+      <Sidebar cart={cart} setCart={setCart} />
       <div className="content-wrapper"> {/* Create a wrapper for the routes */}
         <Routes>
           <Route path="/" element={<Home products={products} cart={cart} setCart={setCart} />} />
