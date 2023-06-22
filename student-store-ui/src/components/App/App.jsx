@@ -22,7 +22,7 @@ export default function App() {
   useEffect(() => {
     axios.get(url).then((response) => {
       setProducts(response.data.products);
-      console.log(response.data);
+     
     });
   }, []);
 

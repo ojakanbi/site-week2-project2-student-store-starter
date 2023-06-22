@@ -1,26 +1,22 @@
-import * as React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
-import "./ProductDetails.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./ProductDetails.css";
 import Home from "../Home/Home";
 
 export function ProductDetails() {
-  const url = "https://codepath-store-api.herokuapp.com/store";
+  const url = "http://localhost:3001/products";
   const { id } = useParams();
 
-  const [products, setProducts] = useState({});
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     axios.get(`${url}/${id}`).then((response) => {
-      setProducts(response.data.product);
+      setProduct(response.data);
     });
-  }, []);
+  }, [id]);
+
+  // console.log(product);
 
   return (
     <>
@@ -28,19 +24,19 @@ export function ProductDetails() {
         <div>
           <img
             className="product-image"
-            src={products.image}
-            alt={products.name}
+            src={product.image}
+            alt={product.name}
           />
         </div>
         <div className="product-info">
-          <h1 className="product-name">{products.name}</h1>
+          <h1 className="product-name">{product.name}</h1>
           <p className="product-price">
-            {products.price.toLocaleString("us-EN", {
+            {product.price?.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD",
             })}
           </p>
-          <p className="product-description">{products.description}</p>
+          <p className="product-description">{product.description}</p>
         </div>
       </div>
     </>
