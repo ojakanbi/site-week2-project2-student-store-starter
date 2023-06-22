@@ -15,16 +15,21 @@ import Sidebar from "../Sidebar/Sidebar";
 export default function App() {
   const url = "http://localhost:3001/api";
 
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([])
 
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setProducts(response.data.products);
+      console.log(products)
      
     });
   }, []);
+
+  // console.log(products)
+
+
 
  
 

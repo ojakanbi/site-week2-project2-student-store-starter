@@ -10,27 +10,25 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import Navbar from "../Navbar/Navbar";
 
 export default function Home({ products, cart, setCart}) {
-  const [filter, setFilter] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    setFilter(products);
+    setFiltered(products);
   }, [products]);
 
   function searchResults(search) {
-    setFilter(
+    setFiltered(
       products.filter((product) => product.name.toLowerCase().includes(search))
     );
   }
 
   function allCategories() {
-    setFilter(products);
+    setFiltered(products);
   }
 
   function filterByCategory(category) {
-    setFilter(products.filter((product) => product.category === category));
+    setFiltered(products.filter((product) => product.category === category));
   }
-
-  
 
   return (
     <>
@@ -71,9 +69,9 @@ export default function Home({ products, cart, setCart}) {
           <li>
             <a
               
-              data-category="clothing"
-              onClick={
-                filterByCategory
+
+              onClick={() =>
+                filterByCategory("clothing")
               }
             >
               Clothing
@@ -82,19 +80,19 @@ export default function Home({ products, cart, setCart}) {
           <li>
             <a
               
-              data-category="food"
-              onClick={() =>
-                filterByCategory("food")
-              }
+      
+              onClick={() => 
+                filterByCategory("food")}
+              
             >
               Food
             </a>
           </li>
           <li>
             <a
-              data-category="accessories"
-              onClick={(event) =>
-                filterByCategory(event.target.dataset.category)
+              
+              onClick={() => {
+                filterByCategory("accessories") }
               }
             >
               Accessories
@@ -105,7 +103,7 @@ export default function Home({ products, cart, setCart}) {
 
       <div className="product-container"></div>
 
-      <ProductList products={filter} cart={cart}  setCart={setCart} />
+      <ProductList products={filtered} cart={cart}  setCart={setCart} />
 
       <div className="about-us-container">
         <h3>About</h3>

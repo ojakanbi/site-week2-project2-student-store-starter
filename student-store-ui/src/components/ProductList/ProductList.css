@@ -104,3 +104,12 @@ img {
 #product-link {
   text-decoration: none;
 }
+
+
+.product-count {
+  background-color: #eaeaea;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}

@@ -43,8 +43,10 @@ export default function Sidebar({cart, setCart}) {
   <div className="cart-container">
     <button className="clear-button" onClick={() => setCart([])}>
       Clear
-    </button>
+      <br></br>
+    </button> 
 
+  
     
     {cart.map((item) => {
       const cost = item.price * item.quantity;
@@ -147,7 +149,7 @@ export default function Sidebar({cart, setCart}) {
 
                 {/* Checkout button */}
                 <div className="">
-                  <button className="button-checkout">Checkout</button>
+                  <button className="button-checkout" >Checkout</button>
                 </div>
 
                 {/* Checkout information */}
