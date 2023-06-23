@@ -9,6 +9,8 @@ export default function Sidebar({ cart, setCart }) {
   const [emailInput, setEmailInput] = useState("");
   const [checkoutComplete, setCheckoutComplete] = useState(false);
 
+
+  console.log(cart)
   // Function to toggle the sidebar open or closed.
   function toggleSidebar() {
     setOpen(!open);

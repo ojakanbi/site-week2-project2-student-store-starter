@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Link, Outlet } from "react-router-dom";
 import { ProductDetails } from "../ProductDetails/ProductDetails";
 
 export function ProductList({ products, cart, setCart }) {
+  
   function addToCart(product) {
+
     const checkProduct = cart?.find((item) => item.id === product.id);
     if (checkProduct) {
       const updatedCart = cart?.map((item) => {

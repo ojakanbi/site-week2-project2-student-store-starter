@@ -10,13 +10,13 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="content">
-          <a id="home"  href="#home">
+          <a   href="/">
           <img src={Logo1}className="slack-img"></img>
             </a>
           <ul className="link">
             <li>
               
-              <a id="home" href="#home">Home </a>
+              <a  href="/">Home </a>
             </li>
             <li>
               
