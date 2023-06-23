@@ -1,15 +1,13 @@
 import * as React from "react";
 import "./Sidebar.css";
-import { useState, useEffect} from "react";
-
+import { useState, useEffect } from "react";
 
 // This component represents a sidebar that can be toggled open or closed.
 export default function Sidebar({ cart, setCart }) {
   const [open, setOpen] = useState(false);
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
-  const [paymentSatus, setPaymentStaus] = useState(false);
-
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
 
   // Function to toggle the sidebar open or closed.
   function toggleSidebar() {
@@ -24,19 +22,32 @@ export default function Sidebar({ cart, setCart }) {
     setEmailInput(event);
   }
 
+  function getTotalPrice() {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+  
+
   function checkout() {
-    setPaymentStaus(!paymentSatus);
+    event.preventDefault()
+    if (cart.length > 0) {
+      setCheckoutComplete(true);
+    } else {
+      alert("There's nothing in your cart to check out.");
+    }
+    
   }
 
   // Set the CSS class based on the state of the sidebar.
   const className = open ? "sidebar" : "sidebar-open";
+  const buttonClass = open ? "toggle-button-button-close" : "toggle-button-button-open"
 
   return (
+    
     // The sidebar section with a wrapper div.
     <section className={className}>
       <div className="wrapper">
         {/* Button to toggle the sidebar */}
-        <button className="toggle-button-button-open" onClick={toggleSidebar}>
+        <button className={buttonClass} onClick={toggleSidebar}>
           <i className="material-icons md-48">arrow_forward</i>
         </button>
 
@@ -44,7 +55,7 @@ export default function Sidebar({ cart, setCart }) {
         {open && (
           <div className="shoping-cart">
             <div className="open">
-              {/* Shopping cart title */}``
+              {/* Shopping cart title */}
               <h3>
                 Shopping Cart
                 <span className="button">
@@ -53,11 +64,15 @@ export default function Sidebar({ cart, setCart }) {
               </h3>
               {/* Notification for empty cart */}
               {cart.length > 0 ? (
-                <div className="cart-container">
+                <>
+                
+                <div className="wholeshop-cont">
                   <button className="clear-button" onClick={() => setCart([])}>
                     Clear
                     <br></br>
                   </button>
+                  <div className="cart-container">
+                  
 
                   {cart.map((item) => {
                     const cost = item.price * item.quantity;
@@ -128,11 +143,15 @@ export default function Sidebar({ cart, setCart }) {
                     </p>
                   </div>
                 </div>
+                </div>
+                
+                </>
               ) : (
                 <div className="notification">
                   <h2>No items added to the cart just yet! Start shopping</h2>
                 </div>
               )}
+              
               {/* Checkout form */}
               <div className="checkout-form">
                 {/* Payment info title */}
@@ -184,18 +203,28 @@ export default function Sidebar({ cart, setCart }) {
                     </div>
                   </form>
                 </div>
-                \{/* Checkout button */}
+                {/* Checkout button */}
                 {/* Checkout information */}
                 <div className="information-check">
                   <h2>Checkout Info</h2>
 
-                  {paymentStatus && cart.length > 0 ? (
-                    <div>
-                      <h3>This is the name input {nameInput}</h3>
-                      <h3>This is the Email input {emailInput}</h3>
+                  {checkoutComplete && cart.length > 0 ? (
+                    <div className="receipt">
+                      <h2>Receipt</h2>
+                      <p>Name: {nameInput}</p>
+                      <p>Email: {emailInput}</p>
+                      <p>
+                        Total Price:{" "}
+                        {getTotalPrice().toLocaleString("us-EN", {
+                          style: "currency",
+                          currency: "USD",
+                        })}
+                      </p>
                     </div>
                   ) : (
-                    <h2>dont return anything</h2>
+                    <div className="notification">
+                      <h2>No items in your cart or checkout not complete.</h2>
+                    </div>
                   )}
 
                   <p>
@@ -210,5 +239,6 @@ export default function Sidebar({ cart, setCart }) {
         )}
       </div>
     </section>
+    
   );
 }
