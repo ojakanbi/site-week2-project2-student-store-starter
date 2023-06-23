@@ -6,10 +6,11 @@ import { useState, useEffect } from "react";
 import Logo1 from "../../images/slack_logo.png";
 import Logo2 from "../../images/slack-img.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 
 // import Navbar from "../Navbar/Navbar";
 
-export default function Home({ products, cart, setCart}) {
+export default function Home({ products, cart, setCart, open, setOpen}) {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
@@ -20,6 +21,10 @@ export default function Home({ products, cart, setCart}) {
     setFiltered(
       products.filter((product) => product.name.toLowerCase().includes(search))
     );
+  }
+
+  function toggleSidebar() {
+    setOpen(!open);
   }
 
   function allCategories() {
@@ -55,7 +60,7 @@ export default function Home({ products, cart, setCart}) {
         </section>
 
         <section>
-          <button className="cart-style">
+          <button className="cart-style" onClick={toggleSidebar} >
             My Cart <i className="material-icons md-48">shopping_cart</i>
           </button>
         </section>

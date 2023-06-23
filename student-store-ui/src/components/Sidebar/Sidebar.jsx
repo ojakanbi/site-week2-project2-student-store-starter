@@ -3,8 +3,8 @@ import "./Sidebar.css";
 import { useState, useEffect } from "react";
 
 // This component represents a sidebar that can be toggled open or closed.
-export default function Sidebar({ cart, setCart }) {
-  const [open, setOpen] = useState(false);
+export default function Sidebar({ cart, setCart, open, setOpen }) {
+
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [checkoutComplete, setCheckoutComplete] = useState(false);
@@ -27,6 +27,9 @@ export default function Sidebar({ cart, setCart }) {
   function getTotalPrice() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }
+
+
+ 
   
 
   function checkout() {
@@ -212,9 +215,20 @@ export default function Sidebar({ cart, setCart }) {
 
                   {checkoutComplete && cart.length > 0 ? (
                     <div className="receipt">
-                      <h2>Receipt</h2>
-                      <p>Name: {nameInput}</p>
-                      <p>Email: {emailInput}</p>
+
+                      <h2>Receipt for {nameInput}</h2>
+                      
+                      <p>Sent to: {emailInput}</p>
+                      {cart.map((item, index) => 
+                      <>
+                       
+                        <li> {item.quantity} total {item.name} purchased at a cost of ${item.price} for a total of ${}</li>
+                      </>
+                       
+                        
+                      )}
+                      
+                      
                       <p>
                         Total Price:{" "}
                         {getTotalPrice().toLocaleString("us-EN", {

@@ -269,23 +269,23 @@
 
 .cart-item {
   flex: 0 0 50%;
-  padding: 1rem;
+  
   box-sizing: border-box;
 }
 
 .cart-item-details {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1px;
 }
 
 .cart-item-name {
-  font-size: 1.2rem;
+  font-size: 15px;
   font-weight: bold;
   color: #333333;
 }
 
 .cart-item-price,
 .cart-item-quantity {
-  margin-bottom: 0.2rem;
+ 
   color: #666666;
 }
 
@@ -296,7 +296,7 @@
 
 .notification {
   text-align: center;
-  margin-top: 2rem;
+ 
 }
 
 .cart-summary {

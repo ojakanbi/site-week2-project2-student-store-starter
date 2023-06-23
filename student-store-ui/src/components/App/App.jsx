@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { ProductDetails } from "../ProductDetails/ProductDetails";
-import Welcome from "../Welcome/Welcome";
 import About from "../About/About";
 import Footer from "../Footer /Footer";
 import Sidebar from "../Sidebar/Sidebar";
@@ -17,6 +16,8 @@ export default function App() {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([])
+  const [open, setOpen] = useState(false); // stored for when user clicks on the cart button in the home coponent
+
 
 
   useEffect(() => {
@@ -37,10 +38,10 @@ export default function App() {
     // The nav bar should be inside with its own Route and is nested for the other routes
     <BrowserRouter>  
       <Navbar /> {/* Render the Navbar component outside the Routes */}
-      <Sidebar cart={cart} setCart={setCart} />
+      <Sidebar cart={cart} setCart={setCart}  open={open} setOpen={setOpen}/>
       <div className="content-wrapper"> {/* Create a wrapper for the routes */}
         <Routes>
-          <Route path="/" element={<Home products={products} cart={cart} setCart={setCart} />} />
+          <Route path="/" element={<Home products={products} cart={cart} setCart={setCart} open={open} setOpen={setOpen}/>} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/" element={<About />} />
         </Routes>

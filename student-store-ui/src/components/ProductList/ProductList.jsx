@@ -6,19 +6,22 @@ import { ProductDetails } from "../ProductDetails/ProductDetails";
 
 export function ProductList({ products, cart, setCart }) {
   
+  // add to cart function 
   function addToCart(product) {
-
+      // first find if the product is in the cart 
     const checkProduct = cart?.find((item) => item.id === product.id);
+    // if true 
     if (checkProduct) {
       const updatedCart = cart?.map((item) => {
         if (item.id === product.id) {
+          // the I only want to update the quanity to plus 1
           return { ...item, quantity: item.quantity + 1 };
         }
         return item;
       });
-      setCart(updatedCart);
-      // console.log(updatedCart)
-    } else {
+      setCart(updatedCart);  // set the state of the cart to the new object
+      
+    } else { // if false, we essentially want to just add the item to the cart that sets the quanity to 1
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   }
