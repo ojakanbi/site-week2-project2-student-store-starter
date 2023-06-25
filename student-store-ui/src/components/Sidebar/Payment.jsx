@@ -7,6 +7,7 @@ export default function Payment({ cart, setCart }) {
   const [total, setTotal] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [receiptItems, setReceiptItems] = useState([]); // New state for storing checked out items
 
   useEffect(() => {
     let total = 0;
@@ -30,10 +31,12 @@ export default function Payment({ cart, setCart }) {
     } else if (!name || !email) {
       alert("Please enter your name and email.");
     } else {
-      alert("Your order has been placed!");
-     
+      setReceiptItems([...cart]); // Create a new array for receiptItems
+      setCart([]); // Clear the cart
       setCheckoutComplete(true);
-      
+      alert("Your order has been placed!");
+      setName("");
+      setEmail("");
     }
   }
 
@@ -44,21 +47,11 @@ export default function Payment({ cart, setCart }) {
         <form>
           <label>
             Name
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={handleNameChange}
-            />
+            <input type="text" name="name" value={name} onChange={handleNameChange} />
           </label>
           <label>
             Email
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={handleEmailChange}
-            />
+            <input type="text" name="email" value={email} onChange={handleEmailChange} />
           </label>
           <label className="checkbox-label">
             <input type="checkbox" name="agreement" value="" />
@@ -75,9 +68,7 @@ export default function Payment({ cart, setCart }) {
 
       {checkoutComplete && (
         <Receipt
-          cart={cart}
-          setCart={setCart}
-          checkoutComplete={checkoutComplete}
+          receiptItems={receiptItems} // Pass the checked out items as prop to the Receipt component
           total={total}
           name={name}
           email={email}
