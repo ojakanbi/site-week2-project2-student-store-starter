@@ -10,7 +10,7 @@ const e = require("express");
 
 router.get("/api", (req, res) => {  // responds to GET requests to the root URL ("/") with an empty object
     res.status(200).json(apiData);
-    res.send(apiData)
+    
     
     
 });

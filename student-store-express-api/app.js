@@ -15,7 +15,7 @@ app.use("/", apiData )// uses apiData from store.js
 
 app.get("/", (req, res) => {
     res.status(200).json({ "ping": "pong" });
-    console.log("this is been hit")
+    
 }) // responds to GET requests to the root URL ("/") with an empty object
 
 
