@@ -11,16 +11,16 @@ export function ProductDetails() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
+    // Fetch the product details from the API when the component mounts
     axios.get(`${url}/${id}`).then((response) => {
       setProduct(response.data);
     });
   }, [id]);
 
-  // console.log(product);
-
   return (
     <>
       <div className="product-details">
+        {/* Display the product image */}
         <div>
           <img
             className="product-image"
@@ -29,13 +29,16 @@ export function ProductDetails() {
           />
         </div>
         <div className="product-info">
+          {/* Display the product name */}
           <h1 className="product-name">{product.name}</h1>
+          {/* Display the product price */}
           <p className="product-price">
             {product.price?.toLocaleString("us-EN", {
               style: "currency",
               currency: "USD",
             })}
           </p>
+          {/* Display the product description */}
           <p className="product-description">{product.description}</p>
         </div>
       </div>

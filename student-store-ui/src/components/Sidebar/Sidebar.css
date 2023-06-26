@@ -68,7 +68,7 @@
   }
   
  .toggle-button-button-open{
-    background: linear-gradient(to right, var(--slack-blue), var(--slack-green));
+    background: linear-gradient(to bottom, var(--slack-blue), var(--slack-green));
 
     border: none;
     color: white;
@@ -297,7 +297,7 @@
   color: #333333;
 }
 
-.notification {
+.notificationn {
   text-align: center;
  
 }

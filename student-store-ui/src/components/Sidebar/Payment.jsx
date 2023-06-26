@@ -8,6 +8,7 @@ export default function Payment({ cart, setCart }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [receiptItems, setReceiptItems] = useState([]); // New state for storing checked out items
+  const [customerInfo, setCustomerInfo] = useState([]);
 
   useEffect(() => {
     let total = 0;
@@ -16,6 +17,11 @@ export default function Payment({ cart, setCart }) {
     });
     setTotal(total);
   }, [cart]);
+
+  function handleShopAgain() {
+    setReceiptItems([]); // Reset receiptItems
+    setCheckoutComplete(false);
+  }
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -32,11 +38,9 @@ export default function Payment({ cart, setCart }) {
       alert("Please enter your name and email.");
     } else {
       setReceiptItems([...cart]); // Create a new array for receiptItems
+      setCustomerInfo({ ...customerInfo, name, email }); // Store name and email in customerInfo using spread operator
       setCart([]); // Clear the cart
       setCheckoutComplete(true);
-      alert("Your order has been placed!");
-      setName("");
-      setEmail("");
     }
   }
 
@@ -68,10 +72,12 @@ export default function Payment({ cart, setCart }) {
 
       {checkoutComplete && (
         <Receipt
-          receiptItems={receiptItems} // Pass the checked out items as prop to the Receipt component
+          receiptItems={receiptItems}
+          customerInfo={customerInfo}
           total={total}
           name={name}
           email={email}
+          onShopAgain={handleShopAgain} // Pass the callback function to the Receipt component
         />
       )}
     </div>

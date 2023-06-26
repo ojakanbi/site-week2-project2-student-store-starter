@@ -10,7 +10,7 @@ import Sidebar from "../Sidebar/Sidebar";
 
 // import Navbar from "../Navbar/Navbar";
 
-export default function Home({ products, cart, setCart, open, setOpen}) {
+export default function Home({ products, cart, setCart, open, setOpen }) {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
@@ -18,8 +18,11 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
   }, [products]);
 
   function searchResults(search) {
+    // Filter products based on search input
     setFiltered(
-      products.filter((product) => product.name.toLowerCase().includes(search))
+      products.filter((product) =>
+        product.name.toLowerCase().includes(search)
+      )
     );
   }
 
@@ -28,16 +31,19 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
   }
 
   function allCategories() {
+    // Show all products
     setFiltered(products);
   }
 
   function filterByCategory(category) {
+    // Filter products by category
     setFiltered(products.filter((product) => product.category === category));
   }
 
   return (
     <>
       <div className="sub-nav-container" id="home">
+        {/* Search bar */}
         <section className="search-container">
           <input
             type="text"
@@ -52,6 +58,7 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
           </button>
         </section>
 
+        {/* Help button */}
         <section>
           <button className="search-button">
             <i className="material-icons md-48">help</i>
@@ -59,47 +66,28 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
           </button>
         </section>
 
+        {/* Cart button */}
         <section>
-          <button className="cart-style" onClick={toggleSidebar} >
+          <button className="cart-style" onClick={toggleSidebar}>
             My Cart <i className="material-icons md-48">shopping_cart</i>
           </button>
         </section>
       </div>
 
       <section className="cat-container">
+        {/* Category navigation */}
         <ul>
           <li>
             <a onClick={allCategories}>All Categories</a>
           </li>
           <li>
-            <a
-              
-
-              onClick={() =>
-                filterByCategory("clothing")
-              }
-            >
-              Clothing
-            </a>
+            <a onClick={() => filterByCategory("clothing")}>Clothing</a>
           </li>
           <li>
-            <a
-              
-      
-              onClick={() => 
-                filterByCategory("food")}
-              
-            >
-              Food
-            </a>
+            <a onClick={() => filterByCategory("food")}>Food</a>
           </li>
           <li>
-            <a
-              
-              onClick={() => {
-                filterByCategory("accessories") }
-              }
-            >
+            <a onClick={() => filterByCategory("accessories")}>
               Accessories
             </a>
           </li>
@@ -108,7 +96,8 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
 
       <div className="product-container"></div>
 
-      <ProductList products={filtered} cart={cart}  setCart={setCart} />
+      {/* Render the filtered product list */}
+      <ProductList products={filtered} cart={cart} setCart={setCart} />
 
       <div className="about-us-container">
         <h3>About</h3>
@@ -123,7 +112,8 @@ export default function Home({ products, cart, setCart, open, setOpen}) {
             <p>
               We've searched far and wide for items that perk the interests of
               even the most eccentric students and decided to offer them all
-              here in one place.</p>
+              here in one place.
+            </p>
 
             <p>
               All proceeds go towards bringing high quality CS education to

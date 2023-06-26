@@ -15,41 +15,44 @@ export default function App() {
   const url = "http://localhost:3001/api";
 
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([])
-  const [open, setOpen] = useState(false); // stored for when user clicks on the cart button in the home coponent
-
-
+  const [cart, setCart] = useState([]);
+  const [open, setOpen] = useState(false); // Stored for when the user clicks on the cart button in the Home component
 
   useEffect(() => {
+    // Fetch the products data from the API
     axios.get(url).then((response) => {
       setProducts(response.data.products);
-      // console.log(products)
-     
     });
   }, []);
 
-  // console.log(products)
-
-
-
- 
-
   return (
-    // The nav bar should be inside with its own Route and is nested for the other routes
-    <BrowserRouter>  
-      <Navbar /> {/* Render the Navbar component outside the Routes */}
-      <Sidebar cart={cart} setCart={setCart}  open={open} setOpen={setOpen}/>
-      <div className="content-wrapper"> {/* Create a wrapper for the routes */}
+    <BrowserRouter>
+      {/* Render the Navbar component outside the Routes */}
+      <Navbar />
+      <Sidebar cart={cart} setCart={setCart} open={open} setOpen={setOpen} />
+
+      <div className="content-wrapper">
+        {/* Create a wrapper for the routes */}
         <Routes>
-          <Route path="/" element={<Home products={products} cart={cart} setCart={setCart} open={open} setOpen={setOpen}/>} />
+          {/* Define the routes and their corresponding components */}
+          <Route
+            path="/"
+            element={
+              <Home
+                products={products}
+                cart={cart}
+                setCart={setCart}
+                open={open}
+                setOpen={setOpen}
+              />
+            }
+          />
           <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="/" element={<About />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
+
       <Footer />
     </BrowserRouter>
   );
 }
-
-
-

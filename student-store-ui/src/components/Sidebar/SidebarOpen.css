@@ -97,14 +97,14 @@
     font-weight: bold;
   }
   
-  .notification {
+  .notificationn {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 200px;
   }
   
-  .notification h2 {
+  .notificationn h2 {
     margin: 0;
   }
   

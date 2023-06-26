@@ -19,22 +19,22 @@ export default function Sidebar({ cart, setCart, open, setOpen }) {
     }
   }
 
+  // Determine the appropriate class name for the sidebar
   const className = open ? "sidebar" : "sidebar-open";
+  // Determine the appropriate class name for the toggle button
   const buttonClass = open ? "toggle-button-button-close" : "toggle-button-button-open";
 
   return (
     <section className={className}>
+      {/* Render the toggle button */}
       <button className={buttonClass} onClick={toggleSidebar}>
         <i className="material-icons md-48">arrow_forward</i>
       </button>
 
+      {/* Render the SidebarOpen component */}
       <SidebarOpen cart={cart} setCart={setCart} open={open} setOpen={setOpen} />
 
-      {cart.length > 0 && (
-        <div className="checkout-button">
-          <button onClick={checkout}>Checkout</button>
-        </div>
-      )}
+      {/* Add any additional content or components */}
     </section>
   );
 }

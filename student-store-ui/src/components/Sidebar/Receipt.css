@@ -1,0 +1,94 @@
+:root {
+    --side-padding: 40px;
+    --slack-purple: #4A154B;
+    --slack-yellow: #ECB22E;
+    --slack-green: #2EB67D;
+    --slack-blue: #36C5F0;
+    --slack-red: #E01E5A;
+  }
+
+
+
+.shop-again {
+    background: linear-gradient(to right, var(--slack-green), var(--slack-red));
+    padding: 3%;
+    cursor: pointer;
+
+
+}
+
+/* Receipt.css */
+.information-check {
+    margin: 20px;
+  }
+  
+  .receipt {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .receipt h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .receipt p {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .receipt ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .receipt li {
+    margin-bottom: 5px;
+    color: #444;
+  }
+  
+  .receipt p.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: right;
+  }
+  
+  .receipt button.shop-again {
+    background-color: #ff7f50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .notification {
+    background-color: #fdf3f3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff7f50;
+    text-align: center;
+  }
+  
+  .notification p {
+    font-size: 18px;
+    color: #666;
+  }
+  
